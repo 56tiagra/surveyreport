@@ -1,38 +1,123 @@
-.App {
+:root {
+  --background-blue: #48919f;
+  --dark-grey: #2c3a47;
+  --white: #ffffff;
+  --text-red: #e66767;
+}
+
+html {
+  background-color: var(--background-blue);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.surveylist {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  flex-wrap: wrap;
+}
+.surveylist a {
+  text-decoration: none;
+}
+.surveylist__title {
+  color: var(--white);
+  text-align: center;
+  padding: 30px;
+  flex: 100%;
+}
+.surveylist__card {
+  background-color: var(--white);
+  width: 400px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.surveylist__card:hover {
+  transform: translate(0, -5px);
+}
+.surveylist__card__header {
+  background: var(--dark-grey);
+  padding: 30px;
+}
+
+.surveylist__card__header__name {
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.surveylist__card__body {
+  background: var(--white);
+  padding: 40px 10px;
+}
+
+.surveylist__card__body__numbers{
+  display: flex;
+  align-items: center;
+}
+
+.surveylist__card__body__numbers__item{
+  flex: 1;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--text-red);
+}
+
+.surveylist__card__body__numbers__item span{
+  display: block;
+  color: #2c3a47;
+  font-size: 20px;
+}
+
+.divider{
+  width: 1px;
+  height: 30px;
+  background: #bbb;
+}
+
+.surveydetail {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  flex-wrap: wrap;
+  position: relative;
+  color: var(--white);
+}
+
+.surveydetail__header {
+  flex: 100%;
+}
+
+.back-button {
+  display: block;
+  padding: 12px 50px;
+  color: var(--text-red);
+  border: 2px solid var(--text-red);
+  border-radius: 6px;
+  margin-top: 16px;
+  transition: .3s linear;
+}
+
+.back-button:hover{
+  background: var(--text-red);
+  color: var(--white);
+}
+
+.surveydetail__summary {
+  flex: 1;
+}
+.surveydetail__summary__title, .surveydetail__summary__text {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.progress-circle {
+  height: 120px;
+  width: 120px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.surveydetail__question-details {
+  flex: 2;
 }
