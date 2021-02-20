@@ -3,6 +3,7 @@ import { getSurveyDetail } from "../services/survey";
 import { SurveyResultDetail } from "../types/survey";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import Accordion from "./Accordion";
 
 function Detail(props: any) {
   const [surveyDetail, setsurveyDetail] = useState<SurveyResultDetail | null>(null)
@@ -45,10 +46,8 @@ function Detail(props: any) {
         })} value={surveyDetail.response_rate*100} text={`${Math.round(surveyDetail.response_rate*100)}%`} />
       </div>
       <div className="surveydetail__question-details">
-
+        <Accordion themes={surveyDetail.themes}/>
       </div>
-
-      {JSON.stringify(surveyDetail)}
     </div>
   );
 }
