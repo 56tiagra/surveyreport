@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { SurveyResult } from "../types/survey";
 
 interface ISurveySummaryCard {
@@ -8,7 +7,6 @@ interface ISurveySummaryCard {
 function SurveySummaryCard(props: ISurveySummaryCard) {
   const surveyResult = props.surveyResult
   return (
-    <Link to={surveyResult.url}>
     <div className="surveylist__card">
       <div className="surveylist__card__header">
         <h2 className="surveylist__card__header__name">{surveyResult.name}</h2>
@@ -32,7 +30,6 @@ function SurveySummaryCard(props: ISurveySummaryCard) {
         </div>
       </div>
     </div>
-    </Link>
   )
 }
 

@@ -11,19 +11,18 @@ function Accordion(props: IAccordion) {
   return (
     <div className="accordion-menu">
       {themes.map((theme, index) => (
-        <li className="accordion-item" id={index.toString()}>
+        <li key={index} className="accordion-item" id={index.toString()}>
           <a className="accordion-item__title">{theme.name} </a>
           <div className="accordion-smenu">
             {
               theme.questions.map((q, i) =>
                 (<a>
                   {q.description}
-                  <br/>
+                  <br />
                   <span>Score: </span>
                   <div className="question-score__container">
-                    <ProgressBar score={CalculateAverageRating(q)}/>
+                    <ProgressBar score={CalculateAverageRating(q)} />
                   </div>
-
                 </a>)
               )
             }

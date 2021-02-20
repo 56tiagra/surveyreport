@@ -94,6 +94,7 @@ html {
   flex-wrap: wrap;
   position: relative;
   color: var(--white);
+  padding: 30px;
 }
 
 .surveydetail__header {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getSurveyList } from "../services/survey";
 import { SurveyResult } from "../types/survey";
 import SurveySummaryCard from "./SurveySummaryCard";
@@ -25,7 +26,7 @@ function Listing() {
     <div className="surveylist">
       <h1 className="surveylist__title">Survey Result</h1>
       {
-        surveyList.map(value => (<SurveySummaryCard surveyResult={value} />))
+        surveyList.map(value => (<Link to={value.url}><SurveySummaryCard surveyResult={value} /></Link>))
       }
     </div>
 
