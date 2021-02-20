@@ -1,6 +1,7 @@
 import React from 'react'
 import { Theme } from "../types/survey"
 import { CalculateAverageRating } from "../utils/helper";
+import ProgressBar from "./ProgressBar";
 
 interface IAccordion {
   themes: Theme[]
@@ -18,7 +19,11 @@ function Accordion(props: IAccordion) {
                 (<a>
                   {q.description}
                   <br/>
-                  <span>Score: </span>{CalculateAverageRating(q)}
+                  <span>Score: </span>
+                  <div className="question-score__container">
+                    <ProgressBar score={CalculateAverageRating(q)}/>
+                  </div>
+
                 </a>)
               )
             }

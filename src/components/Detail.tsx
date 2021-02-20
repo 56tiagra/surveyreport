@@ -39,14 +39,17 @@ function Detail(props: any) {
       <div className="surveydetail__summary">
         <h2 className="surveydetail__summary__title">{surveyDetail.name}</h2>
         <h4 className="surveydetail__summary__text">Response rate:</h4>
-        <CircularProgressbar className="progress-circle" styles={buildStyles({
-              textColor: 'white',
-              pathColor:'white',
-              pathTransitionDuration: 0.5,
-        })} value={surveyDetail.response_rate*100} text={`${Math.round(surveyDetail.response_rate*100)}%`} />
+        <div className="progress-circle__container">
+          <CircularProgressbar className="progress-circle" styles={buildStyles({
+            textColor: 'white',
+            pathColor: 'white',
+            pathTransitionDuration: 0.5,
+          })} value={surveyDetail.response_rate * 100} text={`${Math.round(surveyDetail.response_rate * 100)}%`} />
+        </div>
+
       </div>
       <div className="surveydetail__question-details">
-        <Accordion themes={surveyDetail.themes}/>
+        <Accordion themes={surveyDetail.themes} />
       </div>
     </div>
   );
