@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Survey App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Prerequisites
+- Node: v12.5.0
+### 
 
-In the project directory, you can run:
+### Design consideration
+- This application use an node express server as a proxy to the API, this will resolve the CORS problem with front-end directly talk to the API, also if will protect the service endpoint to directly expose to the browser.
+- The workflow including the Github action to build and run the test.
+- Also for the deployment, this application will directly deployed as a container to Heroku container hosting.
+- css is using `BEM` convention to reduce conflict.
 
-### `yarn start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In the project directory, you can run:<br/>
+`yarn install`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Development
 
-### `yarn test`
+For local development, you can run:<br/>
+`yarn dev`
+This will start the server and the react dev server in
+[localhost:3000](http://localhost:3000/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Test
 
-### `yarn build`
+To run the unit test, run<br/>
+`yarn test`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Production
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run `yarn build` to builds the front-end app for production to the `build` folder.
+then run `yarn server` to start the server for api proxy and server the front-end.
+The default port is set to `3001` if you specify the envrionment variable, the server will run on that port.<br/>
+You can set the environment variable with a `.env` file like below
+```
+PORT=8080
+```
+The application will be run in
+[localhost:3001](http://localhost:3001)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can also build the docker image for this application with
+`docker build --pull --rm -f "dockerfile" -t surveydashboard:latest "." <`
+then run
+`docker run --rm -d  -p 80:80/tcp surveydashboard:latest <`, The application will be run in
+[localhost](http://localhost/)
 
-### `yarn eject`
+## CI/CD
+The application will use Github Action for the workflow and will run build and test the application, and will deploy to Heroku with containerized deployment.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future improvement
+- Use `style-compoment` for the front-end css, this will make the individual component decoupled and be able to reuse with other application more easily, meanwhile, it will reduce the side effect to the global css if not naming properly.
+- Can use existing `http-hook` for the api call to handle to fallback of API failure.

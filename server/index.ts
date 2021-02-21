@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const config = require('./config.json');
+require('dotenv').config()
 
 const app = express();
+const PORT = process.env.PORT || 3001
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/api/surveys/', (req, res) => {
@@ -40,5 +42,5 @@ app.get('/api/surveys/:id', (req, res) => {
   });
 });
 
-app.get('/', express.static('public'))
-app.listen(3001, () => console.log('Express server is running on localhost:3001'));
+app.get('/*', express.static('build'))
+app.listen(PORT, () => console.log(`Express server is running on localhost:${PORT}`));
