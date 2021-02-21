@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Demo
+This application is deployed to [https://survey-report-app.herokuapp.com/](https://survey-report-app.herokuapp.com/) <br/>
+The initial visit will be slow as it is under free tier, the application will sleep after 20 mins inactive. The cold start might take longer. <br/>
+This application workflow is with github action under: [https://github.com/56tiagra/surveyreport](https://github.com/56tiagra/surveyreport)
+
 ### Prerequisites
 - Node: v12.5.0
 ### 
